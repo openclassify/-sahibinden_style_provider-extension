@@ -2,7 +2,7 @@
 
 {% if store_link is null %}
     <a href="{{ url_route('visiosoft.module.advs::list_user_ad', [userId]) }}" rel="nofollow">
-        {{ trans('visiosoft.theme.sahibinden::field.other_ads.name') }}
+        {{ trans('visiosoft.extension.sahibinden_style_provider::field.other_ads.name') }}
     </a>
 {% else %}
     {{ store_link|raw }}

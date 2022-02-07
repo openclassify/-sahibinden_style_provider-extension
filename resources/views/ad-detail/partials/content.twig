@@ -6,7 +6,7 @@
                     <a class="nav-item nav-link bg-secondary d-block d-sm-none" id="nav-info-tab"
                        data-toggle="tab" href="#nav-info" role="tab"
                        aria-controls="nav-info"
-                       aria-selected="true">{{ trans('visiosoft.theme.sahibinden::field.ad_info.name') }}</a>
+                       aria-selected="true">{{ trans('visiosoft.extension.sahibinden_style_provider::field.ad_info.name') }}</a>
 
                     <a class="nav-item nav-link active bg-secondary" id="nav-description-tab"
                        data-toggle="tab" href="#nav-description" role="tab"
@@ -30,22 +30,22 @@
                      aria-labelledby="nav-info-tab">
                     <ul class="list-unstyled classified-detail">
                         <li class="row m-0">
-                            <div class="col-6 p-0 m-0 detail-title">{{ trans('visiosoft.theme.sahibinden::field.price.name') }}</div>
+                            <div class="col-6 p-0 m-0 detail-title">{{ trans('visiosoft.extension.sahibinden_style_provider::field.price.name') }}</div>
                             <div class="col-6 p-0 m-0 text-primary detail-value font-weight-bold">
                                 {% if not setting_value('visiosoft.module.advs::hide_zero_price') or adv.price != "0" %}
                                     {{ adv.price.currency }}
                                 {% else %}
-                                    {{ trans('visiosoft.theme.sahibinden::field.ask_for_price') }}
+                                    {{ trans('visiosoft.extension.sahibinden_style_provider::field.ask_for_price') }}
                                 {% endif %}
 
                             </div>
                         </li>
                         <li class="row m-0">
-                            <div class="col-6 p-0 m-0 detail-title">{{ trans('visiosoft.theme.sahibinden::field.ad.name') }}</div>
+                            <div class="col-6 p-0 m-0 detail-title">{{ trans('visiosoft.extension.sahibinden_style_provider::field.ad.name') }}</div>
                             <div class="col-6 p-0 m-0 text-danger detail-value">{{ adv.id }}</div>
                         </li>
                         <li class="row m-0">
-                            <div class="col-6 p-0 m-0 detail-title">{{ trans('visiosoft.theme.sahibinden::field.ad_date.name') }}</div>
+                            <div class="col-6 p-0 m-0 detail-title">{{ trans('visiosoft.extension.sahibinden_style_provider::field.ad_date.name') }}</div>
                             <div class="col-6 p-0 m-0 detail-value">{{ adv.created_at|date('d/m/Y') }}</div>
                         </li>
                         {{ addBlock('ad-detail/content',{'features_detail':features, 'adv': adv})|raw }}
@@ -79,8 +79,8 @@
 </div>
 {{ addBlock('ad-detail/section',{'adv':adv})|raw }}
 <div class="d-none d-sm-block">
-    {{ setting_value('visiosoft.theme.sahibinden::detail_bottom')|raw }}
+    {{ setting_value('visiosoft.extension.sahibinden_style_provider::detail_bottom')|raw }}
 </div>
 <div class="d-block d-sm-none">
-    {{ setting_value('visiosoft.theme.sahibinden::detail_bottom_mobile')|raw }}
+    {{ setting_value('visiosoft.extension.sahibinden_style_provider::detail_bottom_mobile')|raw }}
 </div>

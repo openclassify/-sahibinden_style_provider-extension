@@ -1,5 +1,5 @@
-{% set userId = setting_value('visiosoft.theme.sahibinden::default_owner') ?: adv.created_by_id %}
-{% set user = setting_value('visiosoft.theme.sahibinden::default_owner') ? entries('users', 'users').find(setting_value('visiosoft.theme.sahibinden::default_owner')) : adv.created_by %}
+{% set userId = setting_value('visiosoft.extension.sahibinden_style_provider::default_owner') ?: adv.created_by_id %}
+{% set user = setting_value('visiosoft.extension.sahibinden_style_provider::default_owner') ? entries('users', 'users').find(setting_value('visiosoft.extension.sahibinden_style_provider::default_owner')) : adv.created_by %}
 {% set sellerInfo = setting_value('visiosoft.module.advs::hide_seller_info') %}
 {% set owner = addBlock('ad-details/owner', {'userId': userId}) %}
 <section id="{{ (section_id) ? section_id : 'main' }}" class="clearfix details-page">
@@ -26,7 +26,7 @@
                target="_blank" class="a-linkedin-type pl-2">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://wa.me/?text={{ setting_value('visiosoft.theme.sahibinden::shareWhatsappMsg')|url_encode }}%20{{ app.request.uri|url_encode }}"
+            <a href="https://wa.me/?text={{ setting_value('visiosoft.extension.sahibinden_style_provider::shareWhatsappMsg')|url_encode }}%20{{ app.request.uri|url_encode }}"
                target="_blank" class="a-sahibinden-type pl-2">
                 <i class="fab fa-whatsapp color-whatsapp-icon"></i>
             </a>
@@ -44,7 +44,7 @@
                             class="a-sahibinden-type border-0 w-100 text-center mt-1 mb-2"
                             data-toggle="modal" data-target="#adv-video">
                         <i class="fas fa-video"></i>
-                        {{ trans('visiosoft.theme.sahibinden::field.video.name') }}
+                        {{ trans('visiosoft.extension.sahibinden_style_provider::field.video.name') }}
                     </button>
                 {% endif %}
                 <div class="text-center border-bottom border-top mt-2 mb-1 pb-1">
@@ -57,7 +57,7 @@
                     </div>
                     {% if not setting_value('visiosoft.module.advs::ads_date_hidden') %}
                         <small class="text-muted">
-                            {{ trans('visiosoft.theme.sahibinden::field.member_since.name') }} {{ user.created_at|date('F Y') }}
+                            {{ trans('visiosoft.extension.sahibinden_style_provider::field.member_since.name') }} {{ user.created_at|date('F Y') }}
                         </small>
                     {% endif %}
                 </div>
@@ -74,7 +74,7 @@
                         {% set district = getDistrict(adv.district.getObject().value) %}
                         {% set neighborhood = getNeighborhood(adv.neighborhood.getObject().value) %}
                         {% set lastCatId = categories|last['id'] %}
-                        {% if setting_value('visiosoft.theme.sahibinden::show_country') %}
+                        {% if setting_value('visiosoft.extension.sahibinden_style_provider::show_country') %}
                             {{ adv.country_name }}
                             <span>/</span>
                         {% endif %}
@@ -105,7 +105,7 @@
             </div>
 
             <div class="col-md-3 px-0 classified-user-section">
-                {% if setting_value('visiosoft.theme.sahibinden::show_owner_details') %}
+                {% if setting_value('visiosoft.extension.sahibinden_style_provider::show_owner_details') %}
                     <div class="userBox d-none d-sm-block">
                         <div class="userDetail pb-0">
                             <div class="border-bottom pb-2 mb-2">
@@ -124,7 +124,7 @@
                                 {% endif %}
                                 <div class="d-flex justify-content-between">
                                     <p>
-                                        {{ trans('visiosoft.theme.sahibinden::field.member_since.name') }}
+                                        {{ trans('visiosoft.extension.sahibinden_style_provider::field.member_since.name') }}
                                         {{ user(userId).created_at|date(config_get('streams::datetime.date_format')) }}
                                     </p>
                                     {% if profile.file.url is not null %}
@@ -142,7 +142,7 @@
                             </ul>
                         </div>
                         <div class="userDetail">
-                            {% if setting_value('visiosoft.theme.sahibinden::contact_info_visible_to_login_user') ? auth_check() : true %}
+                            {% if setting_value('visiosoft.extension.sahibinden_style_provider::contact_info_visible_to_login_user') ? auth_check() : true %}
                                 {% if not sellerInfo %}
                                     {% if adv.show_phone_number.value %}
 
@@ -155,7 +155,7 @@
                                                     <li class="row">
                                                         <div class="col-md-4 p-0 m-0">
                                                             <strong>
-                                                                {{ trans('visiosoft.theme.sahibinden::field.mobile.name') }}
+                                                                {{ trans('visiosoft.extension.sahibinden_style_provider::field.mobile.name') }}
                                                             </strong>
                                                         </div>
                                                         <div class="col-md-8 p-0 m-0 text-right">{{ user.gsm_phone }}</div>
@@ -166,7 +166,7 @@
                                                     <li class="row border-1 border-top">
                                                         <div class="col-md-4 p-0 m-0">
                                                             <strong>
-                                                                {{ trans('visiosoft.theme.sahibinden::field.office_phone.name') }}
+                                                                {{ trans('visiosoft.extension.sahibinden_style_provider::field.office_phone.name') }}
                                                             </strong>
                                                         </div>
                                                         <div class="col-md-8 p-0 m-0 text-right">{{ user.office_phone }}</div>
@@ -177,7 +177,7 @@
                                                     <li class="row border-1 border-top">
                                                         <div class="col-md-4 p-0 m-0">
                                                             <strong>
-                                                                {{ trans('visiosoft.theme.sahibinden::field.land_phone.name') }}
+                                                                {{ trans('visiosoft.extension.sahibinden_style_provider::field.land_phone.name') }}
                                                             </strong>
                                                         </div>
                                                         <div class="col-md-8 p-0 m-0 text-right">{{ user.land_phone }}</div>
@@ -190,13 +190,13 @@
                                     {% if user.gsm_phone is not null %}
                                         <div class="alert alert-info hidden alert-phoneNumber">
                                             <p>
-                                                {{ trans('visiosoft.theme.sahibinden::message.invalid_phoneNumber') }}
+                                                {{ trans('visiosoft.extension.sahibinden_style_provider::message.invalid_phoneNumber') }}
                                             </p>
                                             {% if auth_check() %}
                                                 <p>
                                                     <a href="{{ url_route('profile::profile') }}">
                                                         <b>
-                                                            {{ trans('visiosoft.theme.sahibinden::button.update_profile') }}
+                                                            {{ trans('visiosoft.extension.sahibinden_style_provider::button.update_profile') }}
                                                         </b>
                                                     </a>
                                                 </p>
@@ -207,7 +207,7 @@
                                            class="whatsapp-link hidden">
                                             <button type="button" class="whatsapp-message btn position-relative">
                                                 <i class="d-none d-lg-inline-block fab fa-whatsapp position-absolute"></i>
-                                                {{ trans('visiosoft.theme.sahibinden::field.whatsapp') }}
+                                                {{ trans('visiosoft.extension.sahibinden_style_provider::field.whatsapp') }}
                                             </button>
                                         </a>
                                     {% endif %}
@@ -217,7 +217,7 @@
                                 <div class="text-center">
                                     <small><b><a href="{{ url_route('anomaly.module.users::login') }}"
                                                  class="text-dark">
-                                                {{ trans('visiosoft.theme.sahibinden::message.sign_in_to_contact') }}
+                                                {{ trans('visiosoft.extension.sahibinden_style_provider::message.sign_in_to_contact') }}
                                             </a></b></small>
                                 </div>
                             {% endif %}
@@ -226,13 +226,13 @@
                 {% endif %}
                 {{ addBlock('ad-detail/widget', {'ad': adv, 'price': adv.price, 'id': adv.id, 'cat1': categories['cat1']})|raw }}
                 {{ addBlock('ad-detail/widget-details', {'adv': adv})|raw }}
-                {% if setting_value('visiosoft.theme.sahibinden::show_security_tips') %}
+                {% if setting_value('visiosoft.extension.sahibinden_style_provider::show_security_tips') %}
                     <div class="security-tips d-none d-sm-block">
                         <h6>
-                            {{ trans('visiosoft.theme.sahibinden::field.security_tips.name') }}
+                            {{ trans('visiosoft.extension.sahibinden_style_provider::field.security_tips.name') }}
                         </h6>
                         <p>
-                            {{ setting_value('visiosoft.theme.sahibinden::security_tips_msg') }}
+                            {{ setting_value('visiosoft.extension.sahibinden_style_provider::security_tips_msg') }}
                         </p>
                     </div>
                 {% endif %}
@@ -253,18 +253,18 @@
 {% if user.gsm_phone.value is not null or adv.inStock() %}
     <div class="position-fixed d-block d-sm-none bg-light footer-mobile-device">
         <div class="row m-0 py-2 justify-content-center">
-            {% if setting_value('visiosoft.theme.sahibinden::contact_info_visible_to_login_user') ? auth_check() : true %}
+            {% if setting_value('visiosoft.extension.sahibinden_style_provider::contact_info_visible_to_login_user') ? auth_check() : true %}
                 {% if not adv.inStock() and user.gsm_phone.value is not null %}
                     <div class="col pr-1">
                         <a href="tel:{{ user.gsm_phone }}" class="btn btn-primary w-100 rounded-0">
                             <i class="fas fa-phone"></i>
-                            {{ trans('visiosoft.theme.sahibinden::field.contact_us.name') }}
+                            {{ trans('visiosoft.extension.sahibinden_style_provider::field.contact_us.name') }}
                         </a>
                     </div>
                     <a href="whatsapp://send?phone={{ user.gsm_phone|replace({'+': ""}) }}" class="whatsapp-link col pl-1">
                         <button type="button" class="whatsapp-message mt-0 btn position-relative rounded-0">
                             <i class="fab fa-whatsapp"></i>
-                            {{ trans('visiosoft.theme.sahibinden::field.whatsapp') }}
+                            {{ trans('visiosoft.extension.sahibinden_style_provider::field.whatsapp') }}
                         </button>
                     </a>
                 {% else %}
@@ -273,7 +273,7 @@
             {% else %}
                 <div class="text-center">
                     <small><b><a href="{{ url_route('anomaly.module.users::login') }}" class="text-dark">
-                                {{ trans('visiosoft.theme.sahibinden::message.sign_in_to_contact') }}
+                                {{ trans('visiosoft.extension.sahibinden_style_provider::message.sign_in_to_contact') }}
                             </a></b></small>
                 </div>
             {% endif %}
