@@ -6,7 +6,7 @@ class SahibindenStyleProviderExtension extends ProviderExtension
 {
     protected $provides = 'visiosoft.module.style_selector::provider.sahibinden';
 
-    protected $thumbnail = 'visiosoft.module.style_selector::images/detail_sahibinden.png';
+    protected $thumbnail = 'visiosoft.extension.sahibinden_style_provider::images/detail_sahibinden.png';
 
     protected $overrides = [
         'detail' => [
