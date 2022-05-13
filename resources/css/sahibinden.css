@@ -1177,3 +1177,14 @@ border-bottom: 2px solid {{ adDetailColor ? adDetailColor : '#ffc000' }};
     overflow: hidden;
     outline: none;
 }
+
+@media only screen and (max-width: 576px) {
+
+    .a-sahibinden-type.add-fav small,.classified-title .classified-title-share {
+        display: none !important;
+    }
+
+    .classified-description .nav-fill .nav-item {
+        height: 55px !important;
+    }
+}

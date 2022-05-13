@@ -50,4 +50,10 @@ return [
             "mode" => 'checkbox',
         ]
     ],
+    'show_report_fav' => [
+        'type' => 'anomaly.field_type.boolean',
+        'config' => [
+            'default_value' => false
+        ]
+    ]
 ];
