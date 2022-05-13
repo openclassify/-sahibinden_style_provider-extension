@@ -10,8 +10,9 @@
             </h1>
         </div>
 
-        <div class="m-0 justify-content-end pull-right d-none d-sm-flex text-nowrap align-items-center">
+        <div class="m-0 justify-content-end pull-right {{ setting_value('visiosoft.theme.sahibinden::show_report_fav') ? '' : 'd-none' }} d-sm-flex text-nowrap align-items-center">
             {{ addBlock('ad-detail/title/action', {'adv_id':adv.id, 'sahibinden':true})|raw }}
+            <div class="classified-title-share">
             <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_current()|url_encode }}"
                class="a-sahibinden-type pl-2"
                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
@@ -30,6 +31,7 @@
                target="_blank" class="a-sahibinden-type pl-2">
                 <i class="fab fa-whatsapp color-whatsapp-icon"></i>
             </a>
+            </div>
         </div>
     </div>
     <!--detail-ad -->
