@@ -2,31 +2,34 @@
 
 return [
     'default_owner' => [
-        'name' => 'Varsayılan Sahip',
+        'name' => 'Default Owner',
     ],
     'shareWhatsappMsg' => [
-        'name' => 'Whatsapp Paylaşım Mesajı',
+        'name' => 'Whatsapp Share Message',
     ],
     'show_country' => [
-        'name' => 'Gizli Ayrıntı İçin Ülkeyi Göster',
+        'name' => 'Show Country For Hidden Detail',
     ],
     'show_owner_details' => [
-        'name' => 'Satıcı detayı göster',
+        'name' => 'Show Merchant Detail',
     ],
     'security_tips_msg' => [
-        'name' => 'Güvenlik İpuçları Mesajı',
+        'name' => 'Security Tips Message',
     ],
     'contact_info_visible_to_login_user' => [
         'name' => 'contact information visible only to login user'
     ],
     'show_security_tips' => [
-        'name' => 'Güvenlik İpuçlarını Göster',
+        'name' => 'Show Security Tips',
     ],
     'detail_bottom_mobile' => [
-        'name' => 'Mobil Cihazlar İçin Alt Detay Sayfası',
+        'name' => 'Bottom Detail Page For Mobile Users',
     ],
     'show_view_count' => [
         'name' => 'Show View Count',
         'instructions' => 'Toggle the views count in the ad detail page.',
     ],
+    'show_report_fav' => [
+        'name' => 'Show Report And Add Favourite Buttons On Mobile'
+    ]
 ];
