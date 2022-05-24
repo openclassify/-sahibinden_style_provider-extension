@@ -1180,8 +1180,8 @@ border-bottom: 2px solid {{ adDetailColor ? adDetailColor : '#ffc000' }};
 
 @media only screen and (max-width: 576px) {
 
-    .a-sahibinden-type.add-fav small,.classified-title .classified-title-share {
-        display: none !important;
+    .classified-title-share ~ .share-nav-btn{
+        display: none;
     }
 
     .classified-description .nav-fill .nav-item {
