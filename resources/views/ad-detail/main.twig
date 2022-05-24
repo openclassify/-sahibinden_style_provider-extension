@@ -11,7 +11,7 @@
         </div>
 
         <div class="m-0 justify-content-end pull-right {{ setting_value('visiosoft.extension.sahibinden_style_provider::show_report_fav') ? '' : 'd-none' }} d-sm-flex text-nowrap align-items-center">
-            {{ addBlock('ad-detail/title/action', {'adv_id':adv.id, 'sahibinden':true})|raw }}
+                {{ addBlock('ad-detail/title/top-action', {'adv_id':adv.id, 'sahibinden':true})|raw }}
             <div class="classified-title-share">
             <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_current()|url_encode }}"
                class="a-sahibinden-type pl-2"
@@ -241,12 +241,7 @@
                     </div>
                 {% endif %}
             </div>
-            {% if setting_value("visiosoft.theme.sahibinden::complaint_button") %}
-                <div class="ml-2">
-                    {%  include "visiosoft.module.complaints::ad-detail/title/button" %}
-                    {%  include "visiosoft.module.complaints::ad-detail/title/modal" %}
-                </div>
-            {% endif %}
+                    {{ addBlock('ad-detail/title/bottom-action', {'adv_id':adv.id, 'sahibinden':true})|raw }}
         </div>
         <ul class="docs list-unstyled mt-3">
             {% for doc in adv.doc_files %}
