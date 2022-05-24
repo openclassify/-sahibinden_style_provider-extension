@@ -32,6 +32,8 @@
                 <i class="fab fa-whatsapp color-whatsapp-icon"></i>
             </a>
             </div>
+            <a class="fa fa-share-alt share-nav-btn link-unstyled" href="javascript:"
+               data-toggle="modal" data-target="#shareModal"></a>
         </div>
     </div>
     <!--detail-ad -->
@@ -239,6 +241,12 @@
                     </div>
                 {% endif %}
             </div>
+            {% if setting_value("visiosoft.theme.sahibinden::complaint_button") %}
+                <div class="ml-2">
+                    {%  include "visiosoft.module.complaints::ad-detail/title/button" %}
+                    {%  include "visiosoft.module.complaints::ad-detail/title/modal" %}
+                </div>
+            {% endif %}
         </div>
         <ul class="docs list-unstyled mt-3">
             {% for doc in adv.doc_files %}
