@@ -1185,6 +1185,7 @@ border-bottom: 2px solid {{ adDetailColor ? adDetailColor : '#ffc000' }};
     }
 
     .classified-description .nav-fill .nav-item {
-        height: 55px !important;
+        height: 36px !important;
+        white-space: nowrap;
     }
 }
