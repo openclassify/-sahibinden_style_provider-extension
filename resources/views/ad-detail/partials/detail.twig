@@ -65,6 +65,12 @@
                     </li>
                 {% endif %}
             {% endif %}
+            {% if setting_value("visiosoft.module.advs::show_min_order_limit") %}
+                <li class="row m-0 aa">
+                    <div class="col-6 p-0 m-0 font-weight-bold">{{ trans('visiosoft.extension.sahibinden_style_provider::field.min_order_limit.name') }}</div>
+                    <div class="col-md-6 p-0 m-0">{{ adv.min_order_limit == 0 ? '-' : adv.min_order_limit }}</div>
+                </li>
+            {% endif %}
             {{ addBlock('ad-detail/content',{'features_detail':features,'adv':adv})|raw }}
             {% if setting_value('visiosoft.extension.sahibinden_style_provider::show_view_count') %}
                 <li class="row m-0">

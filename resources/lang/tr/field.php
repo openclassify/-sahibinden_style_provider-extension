@@ -170,6 +170,9 @@ return [
     'video' => [
         'name' => 'Video',
     ],
+    'min_order_limit' => [
+        'name' => 'Min. Sipariş Limiti',
+    ],
     'no_location' => 'Konum seçilmedi.',
     'sort' => [
         'name' => 'Sıralama'

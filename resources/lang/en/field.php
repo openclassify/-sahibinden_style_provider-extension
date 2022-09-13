@@ -170,6 +170,9 @@ return [
     'video' => [
         'name' => 'Video',
     ],
+    'min_order_limit' => [
+        'name' => 'Min Order Limit',
+    ],
     'no_location' => 'Location no selected.',
     'sort' => [
         'name' => 'Sort'
