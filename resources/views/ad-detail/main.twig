@@ -29,7 +29,7 @@
                    target="_blank" class="a-linkedin-type pl-2">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://wa.me/?text={{ variable_value('sahibinden_theme','sahibinden_security_text') ? variable_value('sahibinden_theme','sahibinden_security_text') : setting_value('visiosoft.theme.sahibinden::shareWhatsappMsg')|url_encode }}%20{{ app.request.uri|url_encode }}"
+                <a href="https://wa.me/?text={{ variable_value('sahibinden_theme','sahibinden_security_text') ?: setting_value('visiosoft.theme.sahibinden::shareWhatsappMsg')|url_encode }}%20{{ app.request.uri|url_encode }}"
                    target="_blank" class="a-sahibinden-type pl-2">
                     <i class="fab fa-whatsapp color-whatsapp-icon"></i>
                 </a>
