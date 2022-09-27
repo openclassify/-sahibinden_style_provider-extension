@@ -264,10 +264,6 @@
     background: no-repeat 0 0;
 }
 
-.print-button-detail {
-    font-size: 15px;
-}
-
 @media only screen and (min-width: 1200px) {
     #message i {
         display: inline-block;
