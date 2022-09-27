@@ -75,6 +75,12 @@
                 <!-- Content With Block -->
             </div>
         </div>
+        {% if setting_value('visiosoft.extension.sahibinden_style_provider::enable_print_button') %}
+            <div class="col-md-12 d-none" id="print">
+                {% include "visiosoft.extension.sahibinden_style_provider::print/ad.twig" with {"adv" : adv}%}
+                {{ asset_script("visiosoft.extension.sahibinden_style_provider::js/print.js") }}
+            </div>
+        {% endif %}
     </div>
 </div>
 {{ addBlock('ad-detail/section',{'adv':adv})|raw }}

@@ -31,5 +31,8 @@ return [
     ],
     'show_report_fav' => [
         'name' => 'Mobil Cihazlarda Şikayet Ve Favorilere Ekleme Butonunu Göster'
+    ],
+    'enable_print_button' => [
+        'name' => 'İlan Detayında Yazdır Butonu'
     ]
 ];
