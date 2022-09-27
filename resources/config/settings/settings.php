@@ -55,5 +55,11 @@ return [
         'config' => [
             'default_value' => false
         ]
+    ],
+    "enable_print_button" => [
+    "type" => "anomaly.field_type.boolean",
+        "config" => [
+            "default_value" => false
+        ]
     ]
 ];
