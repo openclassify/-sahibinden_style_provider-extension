@@ -31,5 +31,8 @@ return [
     ],
     'show_report_fav' => [
         'name' => 'Show Report And Add Favourite Buttons On Mobile'
+    ],
+    'enable_print_button' => [
+        'name' => 'Enable Print Button In Ad Detail'
     ]
 ];
