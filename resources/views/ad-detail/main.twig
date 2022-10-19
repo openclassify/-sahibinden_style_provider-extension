@@ -2,6 +2,32 @@
 {% set user = setting_value('visiosoft.extension.sahibinden_style_provider::default_owner') ? entries('users', 'users').find(setting_value('visiosoft.extension.sahibinden_style_provider::default_owner')) : adv.created_by %}
 {% set sellerInfo = setting_value('visiosoft.module.advs::hide_seller_info') %}
 {% set owner = addBlock('ad-details/owner', {'userId': userId}) %}
+{% block dataBreadcrumb %}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "{{ adv.title }}",
+            "image": [
+                {% if count(adv.files) == 0 %}
+                    "{{ img('visiosoft.module.advs::images/no-image.png').url }}"
+                {% else %}
+                    "{{ adv.getMediumPhotoUrl(adv.getViewPhotoUrl[0]) }}"
+                {% endif %}
+            ],
+            "description": "{{ adv.advs_desc|raw }}",
+            "offers": {
+              "@type": "Offer",
+              "url": "{{ app.request.uri }}",
+              "priceCurrency": "{{ adv.currency }}",
+              "price": "{{ adv.price }}",
+              "priceValidUntil": "{{ adv.finish_at }}",
+              "availability": "https://schema.org/InStock"
+            }
+        }
+
+    </script>
+{% endblock %}
 <section id="{{ (section_id) ? section_id : 'main' }}" class="clearfix details-page">
     <div class="classified-title mb-0 mb-sm-2 d-flex justify-content-between align-items-center">
         <div class="p-0 mr-4 text-truncate">
@@ -34,8 +60,8 @@
                     <i class="fab fa-whatsapp color-whatsapp-icon"></i>
                 </a>
                 {% if setting_value('visiosoft.extension.sahibinden_style_provider::enable_print_button') %}
-                <span onclick="printElement('printAd');"
-                   target="_blank" class="a-sahibinden-type pl-1">
+                    <span onclick="printElement('printAd');"
+                          target="_blank" class="a-sahibinden-type pl-1">
                     <i class="fa fa-print print-button-detail"></i>
                 </span>
                 {% endif %}
@@ -242,10 +268,8 @@
                             {{ trans('visiosoft.extension.sahibinden_style_provider::field.security_tips.name') }}
                         </h6>
                         <p>
-                            {{
-                            variable_value('sahibinden_theme','sahibinden_security_text') ?:
-                            setting_value('visiosoft.extension.sahibinden_style_provider::security_tips_msg')
-                            }}
+                            {{ variable_value('sahibinden_theme','sahibinden_security_text') ?:
+                            setting_value('visiosoft.extension.sahibinden_style_provider::security_tips_msg') }}
                         </p>
                     </div>
                 {% endif %}
@@ -276,7 +300,8 @@
                             {{ trans('visiosoft.extension.sahibinden_style_provider::field.contact_us.name') }}
                         </a>
                     </div>
-                    <a href="whatsapp://send?phone={{ user.gsm_phone|replace({'+': ""}) }}" class="whatsapp-link col pl-1">
+                    <a href="whatsapp://send?phone={{ user.gsm_phone|replace({'+': ""}) }}"
+                       class="whatsapp-link col pl-1">
                         <button type="button" class="whatsapp-message mt-0 btn position-relative rounded-0">
                             <i class="fab fa-whatsapp"></i>
                             {{ trans('visiosoft.extension.sahibinden_style_provider::field.whatsapp') }}
