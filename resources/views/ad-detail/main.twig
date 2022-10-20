@@ -142,8 +142,8 @@
 
             <div class="col-md-3 px-0 classified-user-section">
                 {% if setting_value('visiosoft.extension.sahibinden_style_provider::show_owner_details') %}
-                    <div class="userBox d-none d-sm-block">
-                        <div class="userDetail pb-0">
+                    <div class="userBox">
+                        <div class="userDetail d-none d-md-block d-xl-block pb-0">
                             <div class="border-bottom pb-2 mb-2">
                                 {{ addBlock('ad-details/user-image', {'userId': userId})|raw }}
                                 {% if owner %}
@@ -186,7 +186,7 @@
                                         {% if phoneClickCounter %}
                                             {{ phoneClickCounter|raw }}
                                         {% else %}
-                                            <ul class="list-unstyled classified-owner-contact">
+                                            <ul class="list-unstyled d-none d-xl-block d-md-block classified-owner-contact">
                                                 {% if user.gsm_phone is not null %}
                                                     <li class="row">
                                                         <div class="col-md-4 p-0 m-0">
