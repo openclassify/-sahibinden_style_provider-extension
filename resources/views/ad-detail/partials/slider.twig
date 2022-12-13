@@ -12,7 +12,11 @@
                 <a href="{{ img('visiosoft.module.advs::images/no-image.png').url }}"></a>
             {% else %}
                 {% for image in adv.getViewPhotoUrl %}
-                    <a href="{{ adv.getMediumPhotoUrl(image) }}" data-full="{{ image }}"></a>
+                    <a href="{{ adv.getMediumPhotoUrl(image) }}"
+                       data-full="{{ image }}"
+                       data-title="{{ adv.title }}"
+                       data-alt="{{ adv.title }}">
+                    </a>
                 {% endfor %}
             {% endif %}
         </div>
