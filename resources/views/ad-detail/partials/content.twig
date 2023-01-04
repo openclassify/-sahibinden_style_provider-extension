@@ -60,6 +60,14 @@
                         <div class="col-12 classified-description-row mt-0 pt-2">
                             <p>{{ adv.advs_desc|raw }}</p>
                         </div>
+                        {% if adv.tags %}
+                            <div class="col-12 mt-0 pt-2">
+                                <b>{{ trans("visiosoft.module.advs::field.tags.name") }} :</b>
+                                {% for tag in adv.tags.value %}
+                                <span class="pr-1">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
                     {{ addBlock('ad-detail/checkboxes',{'features':features,'class':'d-none d-md-flex', adv: adv})|raw }}
                 </div>
