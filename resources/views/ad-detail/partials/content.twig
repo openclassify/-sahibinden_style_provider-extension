@@ -85,7 +85,11 @@
         </div>
         {% if setting_value('visiosoft.extension.sahibinden_style_provider::enable_print_button') %}
             <div class="col-md-12 d-none" id="printAd">
-                {% include "visiosoft.theme.base::print/ad.twig" with {"adv" : adv}%}
+                {% if is_extension_enabled('visiosoft.extension.print_ad') %}
+                    {{ addBlock('ad-detail/print',{'adv':adv,'categories':categories,'features':features})|raw }}
+                {% else %}
+                    {% include "visiosoft.theme.base::print/ad.twig" with {"adv" : adv}%}
+                {% endif %}
                 {{ asset_script("visiosoft.theme.base::js/theme/print.js") }}
             </div>
         {% endif %}
