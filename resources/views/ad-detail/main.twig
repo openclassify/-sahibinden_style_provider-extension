@@ -300,7 +300,7 @@
                             {{ trans('visiosoft.extension.sahibinden_style_provider::field.contact_us.name') }}
                         </a>
                     </div>
-                    <a href="https://wa.me/?text={{ variable_value('sahibinden_theme','sahibinden_security_text') ?: setting_value('visiosoft.extension.sahibinden_style_provider::shareWhatsappMsg')|url_encode }}%20{{ app.request.uri|url_encode }}"
+                    <a href="https://wa.me/?text={{setting_value('visiosoft.extension.sahibinden_style_provider::shareWhatsappMsg')|url_encode }}%20{{ app.request.uri|url_encode }}"
                        class="whatsapp-link col pl-1">
                         <button type="button" class="whatsapp-message mt-0 btn position-relative rounded-0">
                             <i class="fab fa-whatsapp"></i>
