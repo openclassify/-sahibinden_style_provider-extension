@@ -239,6 +239,9 @@
                                             {% endif %}
                                             </p>
                                         </div>
+                                        <div class="d-block d-sm-none">
+                                            {{ addBlock('ad-detail/details',{'adv':adv},['basic_checkout'])|raw }}
+                                        </div>
                                         <a href="https://wa.me/{{ user.gsm_phone|replace({'+': ""}) }}" target="_blank"
                                            class="whatsapp-link hidden">
                                             <button type="button" class="whatsapp-message btn position-relative">

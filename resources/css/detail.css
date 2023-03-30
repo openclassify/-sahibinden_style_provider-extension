@@ -305,3 +305,7 @@
 .print-button-detail {
     font-size: 15px;
 }
+
+.userBox .userDetail .buynow_btn{
+    width: 100% !important;
+}
