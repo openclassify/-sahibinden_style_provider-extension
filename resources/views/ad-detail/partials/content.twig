@@ -12,19 +12,21 @@
                        data-toggle="tab" href="#nav-description" role="tab"
                        aria-controls="nav-description"
                        aria-selected="true">{{ trans('visiosoft.module.advs::field.description') }}</a>
+                    <!-- Content Tab With Block -->
+                    {{ addBlock('ad-detail/content-tab',{'features':features,'adv':adv})|raw }}
+                    <!-- Content Tab With Block -->
 
-                    {% if not setting_value('visiosoft.module.location::detail_page_location') %}
+                    {% if setting_value('visiosoft.module.location::detail_page_location') %}
                         <a class="nav-item nav-link bg-secondary" id="nav-location-tab"
                            data-toggle="tab" href="#nav-location" role="tab"
                            aria-controls="nav-location"
                            aria-selected="true">{{ trans('visiosoft.module.advs::field.location') }}</a>
                     {% endif %}
 
-                    <!-- Content Tab With Block -->
-                    {{ addBlock('ad-detail/content-tab',{'features':features,'adv':adv})|raw }}
-                    <!-- Content Tab With Block -->
+
                 </div>
             </nav>
+
             <div class="tab-content pb-3 px-sm-0 border-0" id="nav-tabContent">
                 <div class="tab-pane fade px-3" id="nav-info" role="tabpanel"
                      aria-labelledby="nav-info-tab">
