@@ -22,8 +22,11 @@ return [
     'show_security_tips' => [
         'name' => 'Show Security Tips',
     ],
+    'detail_bottom' => [
+        'name' => 'Detail page bottom ad area',
+    ],
     'detail_bottom_mobile' => [
-        'name' => 'Bottom Detail Page For Mobile Users',
+        'name' => 'Mobile detail page bottom ad area',
     ],
     'show_view_count' => [
         'name' => 'Show View Count',

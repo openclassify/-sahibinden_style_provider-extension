@@ -22,8 +22,11 @@ return [
     'show_security_tips' => [
         'name' => 'Güvenlik İpuçlarını Göster',
     ],
+    'detail_bottom' => [
+        'name' => 'Detay sayfası alt reklam alanı',
+    ],
     'detail_bottom_mobile' => [
-        'name' => 'Mobil Cihazlar İçin Alt Detay Sayfası',
+        'name' => 'Mobil detay sayfası alt reklam alanı',
     ],
     'show_view_count' => [
         'name' => 'Görüntüleme Sayısı',

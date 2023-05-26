@@ -98,9 +98,10 @@
     </div>
 </div>
 {{ addBlock('ad-detail/section',{'adv':adv})|raw }}
-<div class="d-none d-sm-block">
-    {{ setting_value('visiosoft.extension.sahibinden_style_provider::detail_bottom')|raw }}
-</div>
-<div class="d-block d-sm-none">
-    {{ setting_value('visiosoft.extension.sahibinden_style_provider::detail_bottom_mobile')|raw }}
-</div>
+    <div class="d-none d-sm-block detail_ad_area">
+        {{ setting_value('visiosoft.extension.sahibinden_style_provider::detail_bottom')|raw }}
+    </div>
+    <div class="d-block d-sm-none detail_ad_area">
+        {{ setting_value('visiosoft.extension.sahibinden_style_provider::detail_bottom_mobile')|raw }}
+    </div>
+

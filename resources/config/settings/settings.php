@@ -40,6 +40,9 @@ return [
             'default_value' => 1
         ],
     ],
+    'detail_bottom' => [
+        'type' => 'anomaly.field_type.wysiwyg',
+    ],
     'detail_bottom_mobile' => [
         'type' => 'anomaly.field_type.wysiwyg',
     ],
