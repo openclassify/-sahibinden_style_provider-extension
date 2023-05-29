@@ -94,7 +94,7 @@
 
     .classified-description {
         padding-top: 0;
-        margin-bottom: 60px;
+        margin-bottom: 20px;
     }
 
     .slider {
@@ -309,3 +309,16 @@
 .userBox .userDetail .buynow_btn{
     width: 100% !important;
 }
+
+.detail_ad_area img{
+    margin: 0 auto !important;
+    display: block;
+}
+
+@media (max-width: 576px){
+    .detail_ad_area img{
+        width: 100%;
+        margin-bottom: 55px !important;
+    }
+}
+
