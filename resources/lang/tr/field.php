@@ -191,4 +191,8 @@ return [
 
 	'currency' => 'Para birimi',
 	'calculate' => 'Çevir',
+
+    'store_phone' => [
+        'name' => 'Store Phone'
+    ]
 ];
