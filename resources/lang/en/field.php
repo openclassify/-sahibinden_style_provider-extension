@@ -191,4 +191,8 @@ return [
 
 	'currency' => 'Currency',
 	'calculate' => 'Calculate',
+
+    'store_phone' => [
+        'name' => 'Store Phone'
+    ]
 ];

@@ -1,7 +1,8 @@
 {% set userId = setting_value('visiosoft.extension.sahibinden_style_provider::default_owner') ?: adv.created_by_id %}
 {% set user = setting_value('visiosoft.extension.sahibinden_style_provider::default_owner') ? entries('users', 'users').find(setting_value('visiosoft.extension.sahibinden_style_provider::default_owner')) : adv.created_by %}
 {% set sellerInfo = setting_value('visiosoft.module.advs::hide_seller_info') %}
-{% set owner = addBlock('ad-details/owner', {'userId': userId}) %}
+{% set storeInfo = getStoreByUserId(userId) %}
+{% set owner = addBlock('ad-details/owner', {'store': storeInfo}) %}
 {% block dataBreadcrumb %}
     <script type="application/ld+json">
         {
@@ -145,7 +146,7 @@
                     <div class="userBox">
                         <div class="userDetail d-none d-md-block d-xl-block pb-0">
                             <div class="border-bottom pb-2 mb-2">
-                                {{ addBlock('ad-details/user-image', {'userId': userId})|raw }}
+                                {{ addBlock('ad-details/user-image', {'store': storeInfo})|raw }}
                                 {% if owner %}
                                     {{ owner|raw }}
                                 {% else %}
@@ -181,12 +182,43 @@
                             {% if setting_value('visiosoft.extension.sahibinden_style_provider::contact_info_visible_to_login_user') ? auth_check() : true %}
                                 {% if not sellerInfo %}
                                     {% if adv.show_phone_number.value %}
-
                                         {% set phoneClickCounter = addBlock('ad-detail/phone-click-counter',{'adv':adv,'user':user}) %}
                                         {% if phoneClickCounter %}
                                             {{ phoneClickCounter|raw }}
                                         {% else %}
                                             <ul class="list-unstyled d-none d-xl-block d-md-block classified-owner-contact">
+                                                {% if storeInfo is not null %}
+                                                    {% if storeInfo.gsm_phone is not null %}
+                                                        <li class="row">
+                                                            <div class="col-md-4 p-0 m-0">
+                                                                <strong>
+                                                                    {{ trans('visiosoft.extension.sahibinden_style_provider::field.store_phone.name') }}
+                                                                </strong>
+                                                            </div>
+                                                            <div class="col-md-8 p-0 m-0 text-right">{{ storeInfo.gsm_phone }}</div>
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if storeInfo.land_phone is not empty %}
+                                                        <li class="row border-1 border-top">
+                                                            <div class="col-md-4 p-0 m-0">
+                                                                <strong>
+                                                                    {{ trans('visiosoft.extension.sahibinden_style_provider::field.land_phone.name') }}
+                                                                </strong>
+                                                            </div>
+                                                            <div class="col-md-8 p-0 m-0 text-right">{{ storeInfo.land_phone }}</div>
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if user.gsm_phone is not empty %}
+                                                        <li class="row border-1 border-top">
+                                                            <div class="col-md-4 p-0 m-0">
+                                                                <strong>
+                                                                    {{ trans('visiosoft.extension.sahibinden_style_provider::field.mobile.name') }}
+                                                                </strong>
+                                                            </div>
+                                                            <div class="col-md-8 p-0 m-0 text-right">{{ user.gsm_phone }}</div>
+                                                        </li>
+                                                    {% endif %}
+                                                    {% else %}
                                                 {% if user.gsm_phone is not null %}
                                                     <li class="row">
                                                         <div class="col-md-4 p-0 m-0">
@@ -219,6 +251,8 @@
                                                         <div class="col-md-8 p-0 m-0 text-right">{{ user.land_phone }}</div>
                                                     </li>
                                                 {% endif %}
+                                                {% endif %}
+
                                             </ul>
                                         {% endif %}
                                     {% endif %}
