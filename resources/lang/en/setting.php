@@ -37,5 +37,8 @@ return [
     ],
     'enable_print_button' => [
         'name' => 'Enable Print Button In Ad Detail'
+    ],
+    "scroll_detail" => [
+        "name" => "Show Tab Detail on Scroll"
     ]
 ];

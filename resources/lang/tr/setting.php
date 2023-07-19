@@ -37,5 +37,8 @@ return [
     ],
     'enable_print_button' => [
         'name' => 'İlan Detayında Yazdır Butonunu Aktif Et'
+    ],
+    "scroll_detail" => [
+        "name" => "Scrollda Üst Detay Çıksın"
     ]
 ];
