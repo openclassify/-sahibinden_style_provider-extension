@@ -64,5 +64,11 @@ return [
         'config' => [
             'default_value' => true
         ]
+    ],
+    'scroll_detail' => [
+        'type' => 'anomaly.field_type.boolean',
+        'config' => [
+            'default_value' => false
+        ]
     ]
 ];

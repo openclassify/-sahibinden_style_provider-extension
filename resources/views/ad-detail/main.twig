@@ -29,7 +29,53 @@
 
     </script>
 {% endblock %}
+
 <section id="{{ (section_id) ? section_id : 'main' }}" class="clearfix details-page">
+    {% if setting_value('visiosoft.extension.sahibinden_style_provider::scroll_detail') %}
+    <div id="sticky-header">
+        <div class="sticky-header-content">
+            <div class="row">
+                <h1 class="sticky-header-title">
+                    {{ adv.title }}
+                </h1>
+                <div class="sticky-header-separator"></div>
+                {{ addBlock('ad-detail/title/action', {'adv_id':adv.id, 'sahibinden':true}, ["favs"])|raw }}
+            </div>
+            <div class="row sticky-attributes">
+                <span class="sticky-header-attribute price">
+                    {{ currency_format(adv.price,adv.currency) }}
+                </span>
+                <span class="sticky-header-attribute location">
+                    {{ adv.city_name }}
+                </span>
+            </div>
+            <div class="sticky-header-info-box">
+                <div class="sticky-header-rel">
+                    <div class="sticky-header-info-box-content">
+                        <div class="sticky-header-store-information">
+                            {% if owner %}
+                                <span class="sticky-header-store-information-text sticky-header-indivudial-name">
+                                    {{ user.name }}
+                                </span>
+                            {% endif %}
+                            {% if owner %}
+                                <span class="sticky-header-store-information-text sticky-header-registration-date">
+                                    {{ trans('visiosoft.extension.sahibinden_style_provider::field.member_since.name') }}
+                                    {{ user(userId).created_at|date(config_get('streams::datetime.date_format')) }}
+                                </span>
+                            {% endif %}
+                            {% if user.gsm_phone is not null %}
+                                    <span class="sticky-header-store-information-text sticky-header-phone">
+                                        {{ user.gsm_phone }}
+                                    </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
     <div class="classified-title mb-0 mb-sm-2 d-flex justify-content-between align-items-center">
         <div class="p-0 mr-4 text-truncate">
             <h1 class="mb-0">
@@ -359,3 +405,5 @@
 {% endif %}
 
 {% include "visiosoft.module.advs::ad-detail/partials/dropleft-edit" %}
+
+{{ asset_add("scripts.js", "visiosoft.extension.sahibinden_style_provider::js/scrollDiv.js") }}
