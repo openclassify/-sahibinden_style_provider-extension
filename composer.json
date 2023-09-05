@@ -18,5 +18,8 @@
         "psr-4": {
             "Visiosoft\\SahibindenStyleProviderExtension\\": "src/"
         }
+    },
+    "require": {
+        "anomaly/variables-module": "^2.4.3"
     }
 }
